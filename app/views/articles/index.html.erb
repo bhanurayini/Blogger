@@ -1,0 +1,21 @@
+<h1>All Articles</h1>
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Actions</th>
+  </thead>
+  <% @articles.each do |article|%>
+  <tr>
+    <td><%= article.id %></td>
+    <td><%= article.title %></td>
+    <td><%= article.body%></td>
+    <td> <%= link_to("show", article_path(article)) %></td>
+    <td><%= link_to("edit", edit_article_path(:id)) %></td>
+    <td><%= link_to("destroy", article, method: :delete, data: {confirm: 'Are you sure?'})%></td>
+</tr>
+<% end %>
+</table>
+
+<%= link_to "New Article", new_article_path %>
