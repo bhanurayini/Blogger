@@ -4,4 +4,9 @@
 <p>Title: <%= @article.title %></p>
 <p>Body: <%= @article.body %></p>
 
+<h3>Comments (<%= @article.comments.size %>)</h3>
+
+<%= render partial: 'articles/comment', collection: @article.comments %>
+
+<%= render partial: 'comments/form'%>
 <%= link_to "Back to Articles Path", articles_path %> | <%= link_to "delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>

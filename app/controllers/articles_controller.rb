@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
   # path is articles/id
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
   # path is articles/new
   def new
